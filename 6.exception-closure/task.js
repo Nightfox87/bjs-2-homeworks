@@ -35,13 +35,9 @@ class Triangle{
 
 function getTriangle(firstSide, secondSide, thirdSide) {
     try {
-        let triangle = new Triangle(firstSide, secondSide, thirdSide);
-        return { 
-            perimeter: triangle.getPerimeter(),
-            area: triangle.getArea()
-        };
+        return new Triangle(firstSide, secondSide, thirdSide);
     }
     catch {
-        console.log("Ошибка! Треугольник не существует");
+        return new Error("Ошибка! Треугольник не существует");
     } 
 }
