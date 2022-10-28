@@ -10,10 +10,8 @@ function validateCount(count) {
     try {
         return parseCount(count);
     } catch (error) {
-        console.log(error);
-    } finally {
-
-    }
+        return error;
+    } 
 }
 
 class Triangle{
@@ -26,20 +24,18 @@ class Triangle{
         }
     }
     getPerimeter() {
-        let p = this.firstSide + this.secondSide + this.thirdSide;
-        return p;
+        return this.firstSide + this.secondSide + this.thirdSide;
     }
     getArea() {
         let p2 = this.getPerimeter() / 2;
-        let s = Math.sqrt(p2 * (p2 - this.firstSide) * (p2 - this.secondSide) * (p2 - this.thirdSide)).toFixed(3);
-        return s;
+        return Number(Math.sqrt(p2 * (p2 - this.firstSide) * (p2 - this.secondSide) * (p2 - this.thirdSide)).toFixed(3));
     }
 
 }
 
 function getTriangle(firstSide, secondSide, thirdSide) {
-    let triangle = new Triangle(firstSide, secondSide, thirdSide);
     try {
+        let triangle = new Triangle(firstSide, secondSide, thirdSide);
         return { 
             perimeter: triangle.getPerimeter(),
             area: triangle.getArea()
@@ -47,7 +43,5 @@ function getTriangle(firstSide, secondSide, thirdSide) {
     }
     catch {
         console.log("Ошибка! Треугольник не существует");
-    } finally {
-
-    }
+    } 
 }
