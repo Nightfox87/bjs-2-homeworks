@@ -38,6 +38,15 @@ function getTriangle(firstSide, secondSide, thirdSide) {
         return new Triangle(firstSide, secondSide, thirdSide);
     }
     catch {
-        return new Error("Ошибка! Треугольник не существует");
+        let errorTriangle = {
+            getPerimeter: function () {
+                return "Ошибка! Треугольник не существует";
+            },
+            getArea: function () {
+                return "Ошибка! Треугольник не существует";
+            }
+        }
+        return errorTriangle;
+        
     } 
 }
