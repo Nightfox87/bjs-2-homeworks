@@ -1,7 +1,7 @@
 class AlarmClock{
     constructor() {
         this.alarmCollection = [];
-        this.timerId;
+        this.timerId = null;
     }
     addClock(time, callback, id) {
         if (id === undefined) {
@@ -23,7 +23,7 @@ class AlarmClock{
         return new Date().toTimeString().slice(0, 5);
     }
     start() {
-        function checkClock(clock) {
+        let checkClock = (clock) => {
             if (this.getCurrentFormattedTime() === clock.time) {
                 clock.callback();
             }
@@ -44,6 +44,7 @@ class AlarmClock{
         this.alarmCollection.forEach((item) => console.log(item.id, item.time));
     }
     clearAlarms() {
+        this.stop();
         this.alarmCollection = [];
     }
 
